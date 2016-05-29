@@ -22,8 +22,19 @@ local current_dir="%{$fg_bold[green]%}%~%{$reset_color%}"
 PROMPT='${clock} ${user_host} ${current_dir}${eol} '
 
 # Display git info
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[magenta]%}(%{$fg[white]%}git%{$fg[magenta]%})%{$fg[yellow]%}-%{$fg[magenta]%}[%{$fg[green]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[magenta]%}(%{$fg[white]%}git%{$fg[magenta]%})%{$fg[yellow]%}-%{$fg[magenta]%}[%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[magenta]%}]%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}"
 
-RPROMPT='$(git_prompt_info)'
+custom_git_prompt_info () {
+	local ref
+	if [[ "$(command git config --get oh-my-zsh.hide-status 2>/dev/null)" != "1" ]]
+	then
+		ref=$(command git symbolic-ref HEAD 2> /dev/null)  || ref=$(command git rev-parse --short HEAD 2> /dev/null)  || return 0
+		echo "$ZSH_THEME_GIT_PROMPT_PREFIX$(parse_git_dirty)${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_SUFFIX"
+	fi
+}
+
+RPROMPT='$(custom_git_prompt_info)'
 
