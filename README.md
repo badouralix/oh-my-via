@@ -2,8 +2,8 @@
 
 
 This is a theme for ZSH which mainly forks the historical theme used on
-
-VIA servers. It can be used with ZSH frameworks such as [Oh-My-ZSH](https://github.com/robbyrussell/oh-my-zsh).
+VIA servers. It can be used with ZSH frameworks such as [Oh-My-ZSH]
+(https://github.com/robbyrussell/oh-my-zsh).
 
 
 ## Usage
@@ -11,7 +11,6 @@ VIA servers. It can be used with ZSH frameworks such as [Oh-My-ZSH](https://gith
 ### Install for Oh-My-ZSH
 
 In order to use this theme, you have to clone this repository in your Oh-My-ZSH
-
 `custom/themes` directory ( usually `~/.oh-my-zsh/custom/themes` ) :
 
 ```
