@@ -21,3 +21,8 @@ local current_dir="%{$fg_bold[green]%}%~%{$reset_color%}"
 
 PROMPT="${clock} ${user_host} ${current_dir}${eol} "
 
+# Display git info
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[magenta]%}(%{$fg[white]%}git%{$fg[magenta]%})%{$fg[yellow]%}-%{$fg[magenta]%}[%{$fg[green]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[magenta]%}]%{$reset_color%}"
+
+RPROMPT="$(git_prompt_info)"
