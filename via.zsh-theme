@@ -17,7 +17,7 @@ fi
 
 local user_host="${user}%{$fg_bold[yellow]%}@%{$fg_bold[white]%}%m%{$reset_color%}"
 
-local current_dir="%{$fg_bold[green]%}%c%{$reset_color%}"
+local current_dir="%{$fg_bold[green]%}%~%{$reset_color%}"
 
 PROMPT="${clock} ${user_host} ${current_dir}${eol} "
 
