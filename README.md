@@ -14,7 +14,7 @@ In order to use this theme, you have to clone this repository in your Oh-My-ZSH
 `custom/themes` directory ( usually `~/.oh-my-zsh/custom/themes` ) :
 
 ```
-git clone https://gitlab.my.ecp.fr/2014badourala/oh-my-via.git $ZSH/.oh-my-zsh/custom/themes/oh-my-via
+git clone https://github.com/badouralix/oh-my-via.git $ZSH/custom/themes/oh-my-via
 ```
 
 You then need to select this theme in your `~/.zshrc` :
