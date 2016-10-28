@@ -8,11 +8,11 @@ if [[ $UID -ne 0 ]];
 then
 	# normal user
 	local user="%{$fg_bold[red]%}%n%{$reset_color%}"
-	local eol="%{$fg_bold[yellow]%}%%%{$reset_color%}"
+	local eol="%{%(?.$fg_bold[yellow].$fg_bold[red])%}%%%{$reset_color%}"
 else
 	# root
 	local user="%{$fg_bold[blue]%}%n%{$reset_color%}"
-	local eol="%{$fg_bold[yellow]%}#%{$reset_color%}"
+	local eol="%{%(?.$fg_bold[yellow].$fg_bold[red])%}#%{$reset_color%}"
 fi
 
 local user_host="${user}%{$fg_bold[yellow]%}@%{$fg_bold[white]%}%m%{$reset_color%}"
