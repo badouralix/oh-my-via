@@ -38,3 +38,5 @@ custom_git_prompt_info () {
 
 RPROMPT='$(custom_git_prompt_info)'
 
+# vim: ft=zsh fenc=utf-8
+
