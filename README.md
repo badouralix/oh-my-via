@@ -31,6 +31,12 @@ Time format defaults to `%D{%H:%M}`, but can be overwritten by setting the varia
 `OHMYVIA_TIME_FORMAT` in your `~/.zshrc`.
 
 
+Testing
+-------
+
+See on [Docker Hub](https://hub.docker.com/r/badouralix/oh-my-via/) for a testing image.
+
+
 License
 -------
 
