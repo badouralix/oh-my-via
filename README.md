@@ -25,6 +25,11 @@ You then need to select this theme in your `~/.zshrc` :
 ZSH_THEME="oh-my-via/via"
 ```
 
+### Customization
+
+Time format defaults to `%D{%H:%M}`, but can be overwritten by setting the variable
+`OHMYVIA_TIME_FORMAT` in your `~/.zshrc`.
+
 
 License
 -------

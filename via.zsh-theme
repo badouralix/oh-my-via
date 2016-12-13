@@ -1,7 +1,8 @@
 # VIA ZSH Theme - Preview: ASAP
 # Fork from the historical VIA Centrale Réseaux ZSH Theme
 
-local clock="%{$fg_bold[cyan]%}%T%{$reset_color%}"
+local time_format=${OHMYVIA_TIME_FORMAT:-"%D{%H:%M}"}
+local clock="%{$fg_bold[cyan]%}$time_format%{$reset_color%}"
 
 # Check the UID
 if [[ $UID -ne 0 ]];
