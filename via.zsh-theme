@@ -22,22 +22,30 @@ local current_dir="%{$fg_bold[green]%}%~%{$reset_color%}"
 
 PROMPT='${clock} ${user_host} ${current_dir}${eol} '
 
-# Display git info
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[magenta]%}(%{$fg[white]%}git%{$fg[magenta]%})%{$fg[yellow]%}-%{$fg[magenta]%}[%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[magenta]%}]%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}"
+# Display vcs info
+autoload -Uz vcs_info
 
-custom_git_prompt_info () {
-	local ref
-	if [[ "$(command git config --get oh-my-zsh.hide-status 2> /dev/null)" != "1" ]]
-	then
-		ref=$(command git symbolic-ref HEAD 2> /dev/null)  || ref=$(command git rev-parse --short HEAD 2> /dev/null)  || return 0
-		echo "$ZSH_THEME_GIT_PROMPT_PREFIX$(parse_git_dirty)${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_SUFFIX"
-	fi
-}
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
 
-RPROMPT='$(custom_git_prompt_info)'
+# In normal formats and actionformats the following replacements are done:
+#	%s : The VCS in use (git, hg, svn, etc.).
+#	%b : Information about the current branch.
+#	%a : An identifier that describes the action. Only makes sense in actionformats.
+#	%i : The current revision number or identifier. For hg the hgrevformat style may be used to customize the output.
+#	%c : The string from the stagedstr style if there are staged changes in the repository.
+#	%u : The string from the unstagedstr style if there are unstaged changes in the repository.
+#	%R : The base directory of the repository.
+#	%r : The repository name. If %R is /foo/bar/repoXY, %r is repoXY.
+#	%S : A subdirectory within a repository. If $PWD is /foo/bar/repoXY/beer/tasty, %S is beer/tasty.
+#	%m : A "misc" replacement. It is at the discretion of the backend to decide what this replacement expands to.
+zstyle ':vcs_info:*' formats \
+	"%{$fg[magenta]%}(%{$fg[white]%}%s%{$fg[magenta]%})%{$fg[yellow]%}-%{$fg[magenta]%}[%{$fg[green]%}%b%{$fg[magenta]%}]%{$reset_color%}"
+zstyle ':vcs_info:*' actionformats \
+	"%{$fg[magenta]%}(%{$fg[white]%}%s%{$fg[magenta]%})%{$fg[yellow]%}-%{$fg[magenta]%}[%{$fg[green]%}%b%{$fg[yellow]%}:%{$fg[red]%}%a%{$fg[magenta]%}]%{$reset_color%}"
+
+precmd () { vcs_info }
+RPROMPT='${vcs_info_msg_0_}'
 
 # vim: ft=zsh fenc=utf-8
 

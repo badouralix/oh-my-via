@@ -7,6 +7,16 @@ This is a theme for ZSH which mainly forks the historical theme used on
 ZSH frameworks such as [Oh-My-ZSH](https://github.com/robbyrussell/oh-my-zsh).
 
 
+Info
+----
+
+### VCS caption
+
+| Color | State |
+|:-----:|:-----:|
+| green | any   |
+
+
 Usage
 -----
 
