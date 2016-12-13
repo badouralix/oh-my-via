@@ -1,12 +1,14 @@
-# via theme for ZSH
+VIA theme for ZSH
+=================
 
 
 This is a theme for ZSH which mainly forks the historical theme used on
-VIA servers. It can be used with ZSH frameworks such as [Oh-My-ZSH]
-(https://github.com/robbyrussell/oh-my-zsh).
+[VIA Centrale Réseaux](https://via.ecp.fr/) servers. It can be used with
+ZSH frameworks such as [Oh-My-ZSH](https://github.com/robbyrussell/oh-my-zsh).
 
 
-## Usage
+Usage
+-----
 
 ### Install for Oh-My-ZSH
 
@@ -22,4 +24,10 @@ You then need to select this theme in your `~/.zshrc` :
 ```
 ZSH_THEME="oh-my-via/via"
 ```
+
+
+License
+-------
+
+Unless explicitly stated to the contrary, all contents licensed under the [WTFPL](LICENSE)
 

@@ -1,5 +1,5 @@
 # VIA ZSH Theme - Preview: ASAP
-# Fork from the historical VIA ZSH Theme
+# Fork from the historical VIA Centrale Réseaux ZSH Theme
 
 local clock="%{$fg_bold[cyan]%}%T%{$reset_color%}"
 
