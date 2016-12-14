@@ -32,6 +32,9 @@ local vcs_unstaged_color=${OHMYVIA_VCS_UNSTAGED_COLOR:-"$fg[red]"}
 local vcs_staged_color=${OHMYVIA_VCS_STAGED_COLOR:-"$fg[yellow]"}
 local vcs_clean_color=${OHMYVIA_VCS_CLEAN_COLOR:-"$fg[green]"}
 
+zstyle ':vcs_info:*' stagedstr "%{$vcs_staged_color%}"
+zstyle ':vcs_info:*' unstagedstr "%{$vcs_unstaged_color%}"
+
 # In normal formats and actionformats the following replacements are done:
 #	%s : The VCS in use (git, hg, svn, etc.).
 #	%b : Information about the current branch.
@@ -43,12 +46,13 @@ local vcs_clean_color=${OHMYVIA_VCS_CLEAN_COLOR:-"$fg[green]"}
 #	%r : The repository name. If %R is /foo/bar/repoXY, %r is repoXY.
 #	%S : A subdirectory within a repository. If $PWD is /foo/bar/repoXY/beer/tasty, %S is beer/tasty.
 #	%m : A "misc" replacement. It is at the discretion of the backend to decide what this replacement expands to.
-zstyle ':vcs_info:*' stagedstr "%{$vcs_staged_color%}"
-zstyle ':vcs_info:*' unstagedstr "%{$vcs_unstaged_color%}"
-zstyle ':vcs_info:*' formats \
-	" %{$fg[magenta]%}(%{$fg[white]%}%s%{$fg[magenta]%})%{$fg[yellow]%}-%{$fg[magenta]%}[%{$vcs_clean_color%}%c%u%b%{$fg[magenta]%}]%{$reset_color%}"
-zstyle ':vcs_info:*' actionformats \
-	" %{$fg[magenta]%}(%{$fg[white]%}%s%{$fg[magenta]%})%{$fg[yellow]%}-%{$fg[magenta]%}[%{$vcs_clean_color%}%c%u%b%{$fg[yellow]%}:%{$fg[red]%}%a%{$fg[magenta]%}]%{$reset_color%}"
+local vcs_formats_prefix=" %{$fg[magenta]%}(%{$fg[white]%}%s%{$fg[magenta]%})%{$reset_color%}"
+local vcs_formats_hyphen="%{$fg[yellow]%}-%{$reset_color%}"
+local vcs_formats_normal="%{$fg[magenta]%}[%{$vcs_clean_color%}%c%u%b%{$fg[magenta]%}]%{$reset_color%}"
+local vcs_formats_action="%{$fg[magenta]%}[%{$vcs_clean_color%}%c%u%b%{$fg[yellow]%}:%{$fg[red]%}%a%{$fg[magenta]%}]%{$reset_color%}"
+
+zstyle ':vcs_info:*' formats       "$vcs_formats_prefix$vcs_formats_hyphen$vcs_formats_normal"
+zstyle ':vcs_info:*' actionformats "$vcs_formats_prefix$vcs_formats_hyphen$vcs_formats_action"
 
 precmd () { vcs_info }
 RPROMPT='${vcs_info_msg_0_}'
