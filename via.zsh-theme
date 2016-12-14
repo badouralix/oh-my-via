@@ -32,10 +32,33 @@ zstyle ':vcs_info:*' check-for-changes true
 
 local vcs_unstaged_color=${OHMYVIA_VCS_UNSTAGED_COLOR:-"$fg[red]"}
 local vcs_staged_color=${OHMYVIA_VCS_STAGED_COLOR:-"$fg[yellow]"}
+local vcs_stash_color=${OHMYVIA_VCS_STASH_COLOR:-"$fg[blue]"}
+local vcs_untracked_color=${OHMYVIA_VCS_UNTRACKED_COLOR:-"$fg[cyan]"}
 local vcs_clean_color=${OHMYVIA_VCS_CLEAN_COLOR:-"$fg[green]"}
 
-zstyle ':vcs_info:*' stagedstr "%{$vcs_staged_color%}"
 zstyle ':vcs_info:*' unstagedstr "%{$vcs_unstaged_color%}"
+zstyle ':vcs_info:*' stagedstr   "%{$vcs_staged_color%}"
+
+# Thanks to https://github.com/sunaku/home/
+function +vi-git-untracked(){
+	if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+		git status --porcelain | fgrep '??' &> /dev/null ; then
+		# This will show the marker if there are any untracked files in repo.
+		# If instead you want to show the marker only if there are untracked
+		# files in $PWD, use:
+		#[[ -n $(git ls-files --others --exclude-standard) ]] ; then
+		hook_com[misc]+="%{$vcs_untracked_color%}"
+	fi
+}
+
+# Thanks to http://eseth.org/2010/git-in-zsh.html
+function +vi-git-stash() {
+	if [[ -s ${hook_com[base]}/.git/refs/stash ]] ; then
+		hook_com[misc]+="%{$vcs_stash_color%}"
+	fi
+}
+
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked git-stash
 
 # In normal formats and actionformats the following replacements are done:
 #	%s : The VCS in use (git, hg, svn, etc.).
@@ -50,8 +73,8 @@ zstyle ':vcs_info:*' unstagedstr "%{$vcs_unstaged_color%}"
 #	%m : A "misc" replacement. It is at the discretion of the backend to decide what this replacement expands to.
 local vcs_formats_prefix=" %{$fg[magenta]%}(%{$fg[white]%}%s%{$fg[magenta]%})%{$reset_color%}"
 local vcs_formats_hyphen="%{$fg[yellow]%}-%{$reset_color%}"
-local vcs_formats_normal="%{$fg[magenta]%}[%{$vcs_clean_color%}%c%u%b%{$fg[magenta]%}]%{$reset_color%}"
-local vcs_formats_action="%{$fg[magenta]%}[%{$vcs_clean_color%}%c%u%b%{$fg[yellow]%}:%{$fg[red]%}%a%{$fg[magenta]%}]%{$reset_color%}"
+local vcs_formats_normal="%{$fg[magenta]%}[%{$vcs_clean_color%}%m%c%u%b%{$fg[magenta]%}]%{$reset_color%}"
+local vcs_formats_action="%{$fg[magenta]%}[%{$vcs_clean_color%}%m%c%u%b%{$fg[yellow]%}:%{$fg[red]%}%a%{$fg[magenta]%}]%{$reset_color%}"
 
 zstyle ':vcs_info:*' formats       "$vcs_formats_prefix$vcs_formats_hyphen$vcs_formats_normal"
 zstyle ':vcs_info:*' actionformats "$vcs_formats_prefix$vcs_formats_hyphen$vcs_formats_action"
