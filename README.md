@@ -12,9 +12,11 @@ Info
 
 ### VCS caption
 
-| Color | State |
-|:-----:|:-----:|
-| green | any   |
+| Color  | State                      | Variable                      |
+|:------:|:--------------------------:|:-----------------------------:|
+| red    | there are unstaged files   | `OHMYVIA_VCS_UNSTAGED_COLOR`  |
+| yellow | there are staged files     | `OHMYVIA_VCS_STAGED_COLOR`    |
+| green  | working directory is clean | `OHMYVIA_VCS_CLEAN_COLOR`     |
 
 
 Usage

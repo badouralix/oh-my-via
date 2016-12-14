@@ -28,6 +28,10 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
 
+local vcs_unstaged_color=${OHMYVIA_VCS_UNSTAGED_COLOR:-"$fg[red]"}
+local vcs_staged_color=${OHMYVIA_VCS_STAGED_COLOR:-"$fg[yellow]"}
+local vcs_clean_color=${OHMYVIA_VCS_CLEAN_COLOR:-"$fg[green]"}
+
 # In normal formats and actionformats the following replacements are done:
 #	%s : The VCS in use (git, hg, svn, etc.).
 #	%b : Information about the current branch.
@@ -39,10 +43,12 @@ zstyle ':vcs_info:*' check-for-changes true
 #	%r : The repository name. If %R is /foo/bar/repoXY, %r is repoXY.
 #	%S : A subdirectory within a repository. If $PWD is /foo/bar/repoXY/beer/tasty, %S is beer/tasty.
 #	%m : A "misc" replacement. It is at the discretion of the backend to decide what this replacement expands to.
+zstyle ':vcs_info:*' stagedstr "%{$vcs_staged_color%}"
+zstyle ':vcs_info:*' unstagedstr "%{$vcs_unstaged_color%}"
 zstyle ':vcs_info:*' formats \
-	"%{$fg[magenta]%}(%{$fg[white]%}%s%{$fg[magenta]%})%{$fg[yellow]%}-%{$fg[magenta]%}[%{$fg[green]%}%b%{$fg[magenta]%}]%{$reset_color%}"
+	" %{$fg[magenta]%}(%{$fg[white]%}%s%{$fg[magenta]%})%{$fg[yellow]%}-%{$fg[magenta]%}[%{$vcs_clean_color%}%c%u%b%{$fg[magenta]%}]%{$reset_color%}"
 zstyle ':vcs_info:*' actionformats \
-	"%{$fg[magenta]%}(%{$fg[white]%}%s%{$fg[magenta]%})%{$fg[yellow]%}-%{$fg[magenta]%}[%{$fg[green]%}%b%{$fg[yellow]%}:%{$fg[red]%}%a%{$fg[magenta]%}]%{$reset_color%}"
+	" %{$fg[magenta]%}(%{$fg[white]%}%s%{$fg[magenta]%})%{$fg[yellow]%}-%{$fg[magenta]%}[%{$vcs_clean_color%}%c%u%b%{$fg[yellow]%}:%{$fg[red]%}%a%{$fg[magenta]%}]%{$reset_color%}"
 
 precmd () { vcs_info }
 RPROMPT='${vcs_info_msg_0_}'
