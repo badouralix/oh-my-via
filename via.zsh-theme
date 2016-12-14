@@ -23,8 +23,10 @@ local current_dir="%{$fg_bold[green]%}%~%{$reset_color%}"
 PROMPT='${clock} ${user_host} ${current_dir}${eol} '
 
 # Display vcs info
+# http://zsh.sourceforge.net/Doc/Release/User-Contributions.html#Version-Control-Information
 autoload -Uz vcs_info
 
+zstyle ':vcs_info:*' max-exports 1		# vcs_info only sets vcs_info_msg_0_
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
 
