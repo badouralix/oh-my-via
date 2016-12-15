@@ -80,7 +80,7 @@ zstyle ':vcs_info:git*+set-message:*' hooks misc-init git-stash git-untracked
 local vcs_formats_prefix="%F{magenta}(%F{white}%s%F{magenta})%f"
 local vcs_formats_hyphen="%F{yellow}-%f"
 local vcs_formats_normal="%F{magenta}[%m%c%u%b%F{magenta}]%f"
-local vcs_formats_action="%F{magenta}[%m%c%u%b%F{yellow}:%F{red}%a%F{magenta}]%f"
+local vcs_formats_action="%F{magenta}[%m%c%u%b%F{magenta}|%F{red}%a%F{magenta}]%f"
 
 zstyle ':vcs_info:*' formats       " $vcs_formats_prefix$vcs_formats_hyphen$vcs_formats_normal"
 zstyle ':vcs_info:*' actionformats " $vcs_formats_prefix$vcs_formats_hyphen$vcs_formats_action"
