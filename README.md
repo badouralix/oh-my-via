@@ -16,8 +16,8 @@ Info
 |:------:|:--------------------------:|:-----------------------------:|
 | red    | there are unstaged files   | `OHMYVIA_VCS_UNSTAGED_COLOR`  |
 | yellow | there are staged files     | `OHMYVIA_VCS_STAGED_COLOR`    |
-| blue   | stash stack is not empty   | `OHMYVIA_VCS_STASH_COLOR`     |
-| cyan   | there are untracked files  | `OHMYVIA_VCS_UNTRACKED_COLOR` |
+| blue   | there are untracked files  | `OHMYVIA_VCS_UNTRACKED_COLOR` |
+| cyan   | stash stack is not empty   | `OHMYVIA_VCS_STASH_COLOR`     |
 | green  | working directory is clean | `OHMYVIA_VCS_CLEAN_COLOR`     |
 
 

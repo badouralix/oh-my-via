@@ -32,8 +32,8 @@ zstyle ':vcs_info:*' check-for-changes true	# enable %c and %u sequences usage
 
 local vcs_unstaged_color=${OHMYVIA_VCS_UNSTAGED_COLOR:-"%F{red}"}
 local vcs_staged_color=${OHMYVIA_VCS_STAGED_COLOR:-"%F{yellow}"}
-local vcs_stash_color=${OHMYVIA_VCS_STASH_COLOR:-"%F{blue}"}
-local vcs_untracked_color=${OHMYVIA_VCS_UNTRACKED_COLOR:-"%F{cyan}"}
+local vcs_untracked_color=${OHMYVIA_VCS_UNTRACKED_COLOR:-"%F{blue}"}
+local vcs_stash_color=${OHMYVIA_VCS_STASH_COLOR:-"%F{cyan}"}
 local vcs_clean_color=${OHMYVIA_VCS_CLEAN_COLOR:-"%F{green}"}
 
 zstyle ':vcs_info:*' unstagedstr $vcs_unstaged_color
@@ -58,7 +58,7 @@ function +vi-git-stash() {
 	fi
 }
 
-zstyle ':vcs_info:git*+set-message:*' hooks git-untracked git-stash
+zstyle ':vcs_info:git*+set-message:*' hooks git-stash git-untracked
 
 # In normal formats and actionformats the following replacements are done:
 #	%s : The VCS in use (git, hg, svn, etc.).
