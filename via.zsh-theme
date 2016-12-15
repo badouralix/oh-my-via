@@ -40,7 +40,7 @@ zstyle ':vcs_info:*' unstagedstr $vcs_unstaged_color
 zstyle ':vcs_info:*' stagedstr   $vcs_staged_color
 
 # Thanks to https://github.com/sunaku/home/
-function +vi-git-untracked(){
+function +vi-git-untracked() {
 	if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
 		git status --porcelain | fgrep '??' &> /dev/null ; then
 		# This will show the marker if there are any untracked files in repo.
@@ -58,7 +58,13 @@ function +vi-git-stash() {
 	fi
 }
 
-zstyle ':vcs_info:git*+set-message:*' hooks git-stash git-untracked
+# Erase hook_com[misc] ( ie. %m ) to avoid dealing with backends info outputs
+# Add $vcs_clean_color to setup default %b coloring in vcs prompt
+function +vi-misc-init() {
+	hook_com[misc]=$vcs_clean_color
+}
+
+zstyle ':vcs_info:git*+set-message:*' hooks misc-init git-stash git-untracked
 
 # In normal formats and actionformats the following replacements are done:
 #	%s : The VCS in use (git, hg, svn, etc.).
@@ -73,8 +79,8 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-stash git-untracked
 #	%m : A "misc" replacement. It is at the discretion of the backend to decide what this replacement expands to.
 local vcs_formats_prefix="%F{magenta}(%F{white}%s%F{magenta})%f"
 local vcs_formats_hyphen="%F{yellow}-%f"
-local vcs_formats_normal="%F{magenta}[$vcs_clean_color%m%c%u%b%F{magenta}]%f"
-local vcs_formats_action="%F{magenta}[$vcs_clean_color%m%c%u%b%F{yellow}:%F{red}%a%F{magenta}]%f"
+local vcs_formats_normal="%F{magenta}[%m%c%u%b%F{magenta}]%f"
+local vcs_formats_action="%F{magenta}[%m%c%u%b%F{yellow}:%F{red}%a%F{magenta}]%f"
 
 zstyle ':vcs_info:*' formats       " $vcs_formats_prefix$vcs_formats_hyphen$vcs_formats_normal"
 zstyle ':vcs_info:*' actionformats " $vcs_formats_prefix$vcs_formats_hyphen$vcs_formats_action"
