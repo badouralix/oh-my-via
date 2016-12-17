@@ -14,11 +14,11 @@ Info
 
 | Color  | State                      | Variable                      |
 |:------:|:--------------------------:|:-----------------------------:|
-| red    | there are unstaged files   | `OHMYVIA_VCS_UNSTAGED_COLOR`  |
-| yellow | there are staged files     | `OHMYVIA_VCS_STAGED_COLOR`    |
-| blue   | there are untracked files  | `OHMYVIA_VCS_UNTRACKED_COLOR` |
-| cyan   | stash stack is not empty   | `OHMYVIA_VCS_STASH_COLOR`     |
-| green  | working directory is clean | `OHMYVIA_VCS_CLEAN_COLOR`     |
+| red    | there are unstaged files   | `OHMYVIA_VCS_COLOR_UNSTAGED`  |
+| yellow | there are staged files     | `OHMYVIA_VCS_COLOR_STAGED`    |
+| blue   | there are untracked files  | `OHMYVIA_VCS_COLOR_UNTRACKED` |
+| cyan   | stash stack is not empty   | `OHMYVIA_VCS_COLOR_STASH`     |
+| green  | working directory is clean | `OHMYVIA_VCS_COLOR_CLEAN`     |
 
 
 Usage
@@ -44,6 +44,7 @@ ZSH_THEME="oh-my-via/via"
 Time format defaults to `%D{%H:%M}`, but can be overwritten by setting the variable
 `OHMYVIA_TIME_FORMAT` in your `~/.zshrc`.
 
+VCS theme can be set through the variable `OHMYVIA_VCS_THEME`.
 
 Testing
 -------
