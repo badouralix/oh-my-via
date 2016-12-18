@@ -1,5 +1,5 @@
 #
-# VIA ZSH Theme - Preview: ASAP
+# Oh-My-VIA ZSH Theme
 # Fork from the historical VIA Centrale Réseaux ZSH Theme
 #
 # This work is free.  You can redistribute it and/or modify it under the terms of

@@ -6,6 +6,14 @@ This is a theme for ZSH which mainly forks the historical theme used on
 [VIA Centrale Réseaux](https://via.ecp.fr/) servers. It can be used with
 ZSH frameworks such as [Oh-My-ZSH](https://github.com/robbyrussell/oh-my-zsh).
 
+![General preview](https://cloud.githubusercontent.com/assets/19719047/21297526/3658ab04-c582-11e6-811d-f316d26996b3.png "Oh-My-VIA theme preview")
+
+
+Testing
+-------
+
+See on [Docker Hub](https://hub.docker.com/r/badouralix/oh-my-via/) for a testing image.
+
 
 Info
 ----
@@ -45,11 +53,6 @@ Time format defaults to `%D{%H:%M}`, but can be overwritten by setting the varia
 `OHMYVIA_TIME_FORMAT` in your `~/.zshrc`.
 
 VCS theme can be set through the variable `OHMYVIA_VCS_THEME`.
-
-Testing
--------
-
-See on [Docker Hub](https://hub.docker.com/r/badouralix/oh-my-via/) for a testing image.
 
 
 License
