@@ -13,6 +13,7 @@
 
 OHMYVIA_INSTALLATION_PATH="$(dirname "$0")"
 
+source $OHMYVIA_INSTALLATION_PATH/functions/utils.zsh
 source $OHMYVIA_INSTALLATION_PATH/functions/vcs_themes.zsh
 source $OHMYVIA_INSTALLATION_PATH/functions/vcs_utils.zsh
 
@@ -49,11 +50,11 @@ zstyle ':vcs_info:*' max-exports 1		# vcs_info only sets vcs_info_msg_0_
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true	# enable %c and %u sequences usage
 
-OHMYVIA_VCS_COLOR_UNSTAGED=${OHMYVIA_VCS_COLOR_UNSTAGED:-"%F{red}"}
-OHMYVIA_VCS_COLOR_STAGED=${OHMYVIA_VCS_COLOR_STAGED:-"%F{yellow}"}
-OHMYVIA_VCS_COLOR_UNTRACKED=${OHMYVIA_VCS_COLOR_UNTRACKED:-"%F{blue}"}
-OHMYVIA_VCS_COLOR_STASH=${OHMYVIA_VCS_COLOR_STASH:-"%F{cyan}"}
-OHMYVIA_VCS_COLOR_CLEAN=${OHMYVIA_VCS_COLOR_CLEAN:-"%F{green}"}
+set_default OHMYVIA_VCS_COLOR_UNSTAGED  "red"
+set_default OHMYVIA_VCS_COLOR_STAGED    "yellow"
+set_default OHMYVIA_VCS_COLOR_UNTRACKED "blue"
+set_default OHMYVIA_VCS_COLOR_STASH     "cyan"
+set_default OHMYVIA_VCS_COLOR_CLEAN     "green"
 
 zstyle ':vcs_info:*' unstagedstr $OHMYVIA_VCS_COLOR_UNSTAGED
 zstyle ':vcs_info:*' stagedstr   $OHMYVIA_VCS_COLOR_STAGED
@@ -61,7 +62,7 @@ zstyle ':vcs_info:*' stagedstr   $OHMYVIA_VCS_COLOR_STAGED
 zstyle ':vcs_info:git*+set-message:*' hooks misc-init git-stash git-untracked
 
 # Load VCS theme
-OHMYVIA_VCS_THEME=${OHMYVIA_VCS_THEME:-"default"}
+set_default OHMYVIA_VCS_THEME "default"
 eval +vi-theme-$OHMYVIA_VCS_THEME
 
 zstyle ':vcs_info:*' formats       " $OHMYVIA_VCS_PROMPT_NORMAL"
