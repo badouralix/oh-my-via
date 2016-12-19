@@ -36,21 +36,13 @@ set_default OHMYVIA_VCS_THEME            "default"
 
 local clock="%B%F{cyan}$OHMYVIA_TIME_FORMAT%f%b"
 
-# Check the UID
-if [[ $UID -ne 0 ]];
-then
-	# normal user
-	local user="%B%F{red}%n%f%b"
-	local eol="%B%(?.%F{yellow}.%F{red})%%%f%b"
-else
-	# root
-	local user="%B%F{blue}%n%f%b"
-	local eol="%B%(?.%F{yellow}.%F{red})#%f%b"
-fi
+local user="%B%(!.%F{blue}.%F{red})%n%f%b"
 
 local user_host="${user}%B%F{yellow}@%F{white}%m%f%b"
 
 local current_dir="%B%F{green}%~%f%b"
+
+local eol="%B%(?.%F{yellow}.%F{red})%#%f%b"
 
 PROMPT='${clock} ${user_host} ${current_dir}${eol} '
 
