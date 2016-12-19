@@ -18,11 +18,23 @@ source $OHMYVIA_INSTALLATION_PATH/functions/vcs_themes.zsh
 source $OHMYVIA_INSTALLATION_PATH/functions/vcs_utils.zsh
 
 #################################################################################
+# Variables initialization
+#################################################################################
+
+set_default OHMYVIA_TIME_FORMAT          "%D{%H:%M}"
+
+set_default OHMYVIA_VCS_COLOR_UNSTAGED   "red"
+set_default OHMYVIA_VCS_COLOR_STAGED     "yellow"
+set_default OHMYVIA_VCS_COLOR_UNTRACKED  "blue"
+set_default OHMYVIA_VCS_COLOR_STASH      "cyan"
+set_default OHMYVIA_VCS_COLOR_CLEAN      "green"
+set_default OHMYVIA_VCS_THEME            "default"
+
+#################################################################################
 # Setup prompts
 #################################################################################
 
-local time_format=${OHMYVIA_TIME_FORMAT:-"%D{%H:%M}"}
-local clock="%B%F{cyan}$time_format%f%b"
+local clock="%B%F{cyan}$OHMYVIA_TIME_FORMAT%f%b"
 
 # Check the UID
 if [[ $UID -ne 0 ]];
@@ -50,19 +62,12 @@ zstyle ':vcs_info:*' max-exports 1		# vcs_info only sets vcs_info_msg_0_
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true	# enable %c and %u sequences usage
 
-set_default OHMYVIA_VCS_COLOR_UNSTAGED  "red"
-set_default OHMYVIA_VCS_COLOR_STAGED    "yellow"
-set_default OHMYVIA_VCS_COLOR_UNTRACKED "blue"
-set_default OHMYVIA_VCS_COLOR_STASH     "cyan"
-set_default OHMYVIA_VCS_COLOR_CLEAN     "green"
-
 zstyle ':vcs_info:*' unstagedstr $OHMYVIA_VCS_COLOR_UNSTAGED
 zstyle ':vcs_info:*' stagedstr   $OHMYVIA_VCS_COLOR_STAGED
 
 zstyle ':vcs_info:git*+set-message:*' hooks misc-init git-stash git-untracked
 
 # Load VCS theme
-set_default OHMYVIA_VCS_THEME "default"
 eval +vi-theme-$OHMYVIA_VCS_THEME
 
 zstyle ':vcs_info:*' formats       " $OHMYVIA_VCS_PROMPT_NORMAL"
