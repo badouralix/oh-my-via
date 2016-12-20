@@ -11,7 +11,7 @@
 #
 # @param $1 : name of the variable to be filled
 # @param $2 : default value set if $1 is not already defined
-function set_default() {
+set_default () {
 
 	# /!\ compute differently with color variables
 	# TODO make the regex case-insensitive
@@ -28,7 +28,7 @@ function set_default() {
 #
 # @param $1 : name of the variable to be filled
 # @param $2 : default value set if $1 is not already a visual effect or a color code
-function set_default_color() {
+set_default_color () {
 
 	# See http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Visual-effects
 	if [[ ! ${(P)1} =~ '%' ]]; then

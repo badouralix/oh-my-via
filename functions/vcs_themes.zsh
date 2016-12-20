@@ -18,7 +18,7 @@
 #	%S : A subdirectory within a repository. If $PWD is /foo/bar/repoXY/beer/tasty, %S is beer/tasty.
 #	%m : A "misc" replacement. It is at the discretion of the backend to decide what this replacement expands to.
 
-function +vi-theme-default() {
++vi-theme-default () {
 	local vcs_prompt_prefix="%F{magenta}(%F{white}%s%F{magenta})%f"
 	local vcs_prompt_hyphen="%F{yellow}-%f"
 	local vcs_prompt_normal="%F{magenta}[%m%c%u%b%F{magenta}]%f"
@@ -28,7 +28,7 @@ function +vi-theme-default() {
 	OHMYVIA_VCS_PROMPT_ACTION=${OHMYVIA_VCS_PROMPT_ACTION:-"$vcs_prompt_prefix$vcs_prompt_hyphen$vcs_prompt_action"}
 }
 
-function +vi-theme-alphabet() {
++vi-theme-alphabet () {
 	local vcs_prompt_prefix="%F{magenta}(%F{white}%s%F{magenta})%f"
 	local vcs_prompt_hyphen="%F{yellow}-%f"
 	local vcs_prompt_normal="%F{magenta}[%m%c%u%b%F{magenta}]%f"
@@ -38,7 +38,7 @@ function +vi-theme-alphabet() {
 	OHMYVIA_VCS_PROMPT_ACTION="$vcs_prompt_prefix$vcs_prompt_hyphen$vcs_prompt_action"
 }
 
-function +vi-theme-djou() {
++vi-theme-djou () {
 	local vcs_prompt_prefix="%F{white}%s%f"
 	local vcs_prompt_hyphen=" %F{yellow}-%f "
 	local vcs_prompt_normal="%m%c%u%b%f"
@@ -48,7 +48,7 @@ function +vi-theme-djou() {
 	OHMYVIA_VCS_PROMPT_ACTION="$vcs_prompt_prefix$vcs_prompt_hyphen$vcs_prompt_action"
 }
 
-function +vi-theme-kiwi() {
++vi-theme-kiwi () {
 	local vcs_prompt_prefix="%F{magenta}(%F{white}%s%F{magenta})%f"
 	local vcs_prompt_hyphen="%F{yellow}-%f"
 	local vcs_prompt_normal="%F{magenta}[%m%c%u%b%F{magenta}]%f"
@@ -58,7 +58,7 @@ function +vi-theme-kiwi() {
 	OHMYVIA_VCS_PROMPT_ACTION="$vcs_prompt_prefix$vcs_prompt_hyphen$vcs_prompt_action"
 }
 
-function +vi-theme-jon() {
++vi-theme-jon () {
 	local vcs_prompt_prefix=""
 	local vcs_prompt_hyphen=""
 	local vcs_prompt_normal="%F{magenta}[%m%c%u%b%F{magenta}]%f"
