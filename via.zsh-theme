@@ -13,6 +13,7 @@
 
 OHMYVIA_INSTALLATION_PATH="$(dirname "$0")"
 
+source $OHMYVIA_INSTALLATION_PATH/functions/prompt_utils.zsh
 source $OHMYVIA_INSTALLATION_PATH/functions/utils.zsh
 source $OHMYVIA_INSTALLATION_PATH/functions/vcs_themes.zsh
 source $OHMYVIA_INSTALLATION_PATH/functions/vcs_utils.zsh
@@ -21,30 +22,36 @@ source $OHMYVIA_INSTALLATION_PATH/functions/vcs_utils.zsh
 # Variables initialization
 #################################################################################
 
-set_default OHMYVIA_TIME_FORMAT          "%D{%H:%M}"
+## Properties
 
-set_default OHMYVIA_VCS_COLOR_UNSTAGED   "red"
-set_default OHMYVIA_VCS_COLOR_STAGED     "yellow"
-set_default OHMYVIA_VCS_COLOR_UNTRACKED  "blue"
-set_default OHMYVIA_VCS_COLOR_STASH      "cyan"
-set_default OHMYVIA_VCS_COLOR_CLEAN      "green"
-set_default OHMYVIA_VCS_THEME            "default"
+set_default OHMYVIA_CONTEXT_HOSTNAME_COLOR   "%B%F{white}"
+set_default OHMYVIA_CONTEXT_SEPARATOR_COLOR  "%B%F{yellow}"
+set_default OHMYVIA_CONTEXT_ROOT_COLOR       "%B%F{blue}"
+set_default OHMYVIA_CONTEXT_USER_COLOR       "%B%F{red}"
+
+set_default OHMYVIA_DIR_COLOR                "%B%F{green}"
+
+set_default OHMYVIA_STATUS_OK_COLOR          "%B%F{yellow}"
+set_default OHMYVIA_STATUS_ERROR_COLOR       "%B%F{red}"
+
+set_default OHMYVIA_TIME_COLOR               "%B%F{cyan}"
+set_default OHMYVIA_TIME_FORMAT              "%D{%H:%M}"
+
+set_default OHMYVIA_VCS_COLOR_UNSTAGED       "red"
+set_default OHMYVIA_VCS_COLOR_STAGE          "yellow"
+set_default OHMYVIA_VCS_COLOR_UNTRACKED      "blue"
+set_default OHMYVIA_VCS_COLOR_STASH          "cyan"
+set_default OHMYVIA_VCS_COLOR_CLEAN          "green"
+set_default OHMYVIA_VCS_THEME                "default"
+
 
 #################################################################################
-# Setup prompts
+# Build left & right prompts
 #################################################################################
 
-local clock="%B%F{cyan}$OHMYVIA_TIME_FORMAT%f%b"
+OHMYVIA_EOL="%(?.$OHMYVIA_STATUS_OK_COLOR.$OHMYVIA_STATUS_ERROR_COLOR)%#%f%b"
 
-local user="%B%(!.%F{blue}.%F{red})%n%f%b"
-
-local user_host="${user}%B%F{yellow}@%F{white}%m%f%b"
-
-local current_dir="%B%F{green}%~%f%b"
-
-local eol="%B%(?.%F{yellow}.%F{red})%#%f%b"
-
-PROMPT='${clock} ${user_host} ${current_dir}${eol} '
+PROMPT="$(prompt_time) $(prompt_context) $(prompt_dir)${OHMYVIA_EOL} "
 
 # Display vcs info
 # http://zsh.sourceforge.net/Doc/Release/User-Contributions.html#Version-Control-Information
