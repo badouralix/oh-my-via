@@ -55,8 +55,20 @@ Time format defaults to `%D{%H:%M}`, but can be overwritten by setting the varia
 VCS theme can be set through the variable `OHMYVIA_VCS_THEME`.
 
 
+Unit testing
+------------
+
+Oh-My-VIA uses [ZUnit](https://github.com/molovo/zunit) as unit testing framework.
+
+To run the tests, just run:
+
+```
+zunit test
+```
+
+
 License
 -------
 
-Unless explicitly stated to the contrary, all contents licensed under the [WTFPL](LICENSE)
+Unless explicitly stated to the contrary, all contents licensed under the [WTFPL](LICENSE).
 

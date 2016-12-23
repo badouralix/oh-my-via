@@ -1,0 +1,112 @@
+#!/usr/bin/env zunit
+
+@setup {
+	ZUNIT_LIB_DIR='../functions'
+	assert $ZUNIT_LIB_DIR is_dir
+}
+
+@teardown {
+	unset ZUNIT_LIB_DIR
+}
+
+# Testing lib
+
+@test 'Test loading utils.zsh' {
+	assert $ZUNIT_LIB_DIR/utils.zsh is_file
+
+	load $ZUNIT_LIB_DIR/utils.zsh
+
+	assert $state equals 0
+}
+
+# Testing set_default function
+
+@test 'Test set_default on non-set variable' {
+	load $ZUNIT_LIB_DIR/utils.zsh
+
+	unset ZUNIT_TEST_VAR
+	set_default ZUNIT_TEST_VAR "default_value"
+	assert $ZUNIT_TEST_VAR same_as "default_value"
+}
+
+@test 'Test set_default on already-set variable' {
+	load $ZUNIT_LIB_DIR/utils.zsh
+
+	ZUNIT_TEST_VAR="test_value"
+	set_default ZUNIT_TEST_VAR "default_value"
+	assert $ZUNIT_TEST_VAR same_as "test_value"
+	assert $ZUNIT_TEST_VAR different_to "default_value"
+}
+
+@test 'Test set_default on /_COLOR$/ variable' {
+	load $ZUNIT_LIB_DIR/utils.zsh
+
+	set_default       ZUNIT_TEST_VAR_COLOR         "default_value"
+	set_default_color ZUNIT_TEST_VAR_COLOR_WITNESS "default_value"
+	assert $ZUNIT_TEST_VAR_COLOR same_as $ZUNIT_TEST_VAR_COLOR_WITNESS
+}
+
+@test 'Test set_default on /_COLOR_.*$/ variable' {
+	load $ZUNIT_LIB_DIR/utils.zsh
+
+	set_default       ZUNIT_TEST_COLOR_VAR         "default_value"
+	set_default_color ZUNIT_TEST_COLOR_VAR_WITNESS "default_value"
+	assert $ZUNIT_TEST_COLOR_VAR same_as $ZUNIT_TEST_COLOR_VAR_WITNESS
+}
+
+@test 'Test set_default on /_COLOR[^_].*$/ variable' {
+	load $ZUNIT_LIB_DIR/utils.zsh
+
+	set_default ZUNIT_TEST_COLORVAR "default_value"
+	assert $ZUNIT_TEST_COLORVAR same_as "default_value"
+}
+
+# Testing set_default_color function
+
+@test 'Test set_default_color on non-set variable with visual effect, first style' {
+	load $ZUNIT_LIB_DIR/utils.zsh
+
+	set_default_color ZUNIT_TEST_VAR "%F{red}"
+	assert $ZUNIT_TEST_VAR same_as "%F{red}"
+}
+
+@test 'Test set_default_color on non-set variable with visual effect, second style' {
+	load $ZUNIT_LIB_DIR/utils.zsh
+
+	set_default_color ZUNIT_TEST_VAR "%{$fg[red]%}"
+	assert $ZUNIT_TEST_VAR same_as "%{$fg[red]%}"
+}
+
+@test 'Test set_default_color on non-set variable with color' {
+	load $ZUNIT_LIB_DIR/utils.zsh
+
+	set_default_color ZUNIT_TEST_VAR "red"
+	assert $ZUNIT_TEST_VAR same_as "%F{red}"
+}
+
+@test 'Test set_default_color on already-set variable with visual effect, first style' {
+	load $ZUNIT_LIB_DIR/utils.zsh
+
+	ZUNIT_TEST_VAR="%F{red}"
+	set_default_color ZUNIT_TEST_VAR "green"
+	assert $ZUNIT_TEST_VAR same_as "%F{red}"
+}
+
+@test 'Test set_default_color on already-set variable with visual effect, second style' {
+	load $ZUNIT_LIB_DIR/utils.zsh
+
+	ZUNIT_TEST_VAR="%{$fg[red]%}"
+	set_default_color ZUNIT_TEST_VAR "green"
+	assert $ZUNIT_TEST_VAR same_as "%{$fg[red]%}"
+}
+
+@test 'Test set_default_color on already-set variable with color' {
+	load $ZUNIT_LIB_DIR/utils.zsh
+
+	ZUNIT_TEST_VAR="red"
+	set_default_color ZUNIT_TEST_VAR "green"
+	assert $ZUNIT_TEST_VAR same_as "%F{red}"
+}
+
+# vim: ft=zsh fenc=utf-8
+
