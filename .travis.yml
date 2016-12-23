@@ -1,0 +1,19 @@
+sudo: required
+
+language: sh
+
+services:
+  - docker
+
+before_install:
+  - docker pull badouralix/zunit
+
+before_script:
+  - docker run -t --rm badouralix/zunit zsh --version
+  - ls -a
+
+script:
+  - docker run -t -v $PWD:/app:ro badouralix/zunit zunit test
+
+# vim: ts=2 sw=2 sts=2
+
