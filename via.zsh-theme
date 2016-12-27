@@ -72,6 +72,8 @@ eval +vi-theme-$OHMYVIA_VCS_THEME
 zstyle ':vcs_info:*' formats       " $OHMYVIA_VCS_PROMPT_NORMAL"
 zstyle ':vcs_info:*' actionformats " $OHMYVIA_VCS_PROMPT_ACTION"
 
+# Override precmd to update vcs_info_msg_0_ before prompt.
+# See http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions
 precmd () { vcs_info }
 RPROMPT='${vcs_info_msg_0_}'
 

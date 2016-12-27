@@ -16,7 +16,7 @@ set_default () {
 	# /!\ compute differently with color variables
 	# TODO make the regex case-insensitive
 	if [[ $1 =~ '_COLOR(_.*)?$' ]]; then
-		set_default_color $1 $2
+		set_default_color "$@"
 	else
 		# See http://zsh.sourceforge.net/Doc/Release/Expansion.html#Parameter-Expansion-Flags
 		[[ -z ${(P)1} ]] && typeset -g $1=$2
