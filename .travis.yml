@@ -10,10 +10,11 @@ before_install:
 
 before_script:
   - docker run -t --rm badouralix/zunit zsh --version
+  - docker run -t --rm badouralix/zunit --version
   - ls -a
 
 script:
-  - docker run -t -v $PWD:/app:ro badouralix/zunit zunit test
+  - docker run -t -v $PWD:/app:ro badouralix/zunit --fail-fast test
 
 after_success:
   # Notify Docker Hub to make a new build
