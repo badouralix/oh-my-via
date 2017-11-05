@@ -54,6 +54,9 @@ ZSH_THEME="oh-my-via/via"
 Time format defaults to `%D{%H:%M}`, but can be overwritten by setting the variable
 `OHMYVIA_TIME_FORMAT` in your `~/.zshrc`.
 
+Hostname may be printed up to the first `.` or hidden with the variable
+`OHMYVIA_CONTEXT_HOSTNAME`.
+
 VCS theme can be set through the variable `OHMYVIA_VCS_THEME`.
 
 

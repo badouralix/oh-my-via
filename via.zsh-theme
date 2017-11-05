@@ -24,6 +24,7 @@ source $OHMYVIA_INSTALLATION_PATH/functions/vcs_utils.zsh
 
 ## Properties
 
+set_default OHMYVIA_CONTEXT_HOSTNAME         "full"
 set_default OHMYVIA_CONTEXT_HOSTNAME_COLOR   "%B%F{white}"
 set_default OHMYVIA_CONTEXT_SEPARATOR_COLOR  "%B%F{yellow}"
 set_default OHMYVIA_CONTEXT_ROOT_COLOR       "%B%F{blue}"
