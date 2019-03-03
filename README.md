@@ -1,5 +1,4 @@
-VIA theme for ZSH
-=================
+# VIA theme for ZSH
 
 [![Build Status](https://travis-ci.org/badouralix/oh-my-via.svg?branch=master)](https://travis-ci.org/badouralix/oh-my-via)
 [![WTFPLv2 License](https://img.shields.io/badge/license-WTFPLv2-blue.svg)](http://www.wtfpl.net)
@@ -10,15 +9,11 @@ ZSH frameworks such as [Oh-My-ZSH](https://github.com/robbyrussell/oh-my-zsh).
 
 ![General preview](https://cloud.githubusercontent.com/assets/19719047/21297526/3658ab04-c582-11e6-811d-f316d26996b3.png "Oh-My-VIA theme preview")
 
-
-Testing
--------
+## Testing
 
 See on [Docker Hub](https://hub.docker.com/r/badouralix/oh-my-via/) for a testing image.
 
-
-Info
-----
+## Info
 
 ### VCS caption
 
@@ -30,50 +25,62 @@ Info
 | cyan   | stash stack is not empty   | `OHMYVIA_VCS_COLOR_STASH`     |
 | green  | working directory is clean | `OHMYVIA_VCS_COLOR_CLEAN`     |
 
-
-Usage
------
+## Usage
 
 ### Install for Oh-My-ZSH
 
 In order to use this theme, you have to clone this repository in your Oh-My-ZSH
 `custom/themes` directory ( usually `~/.oh-my-zsh/custom/themes` ) :
 
-```
+```zsh
 git clone https://github.com/badouralix/oh-my-via.git $ZSH/custom/themes/oh-my-via
 ```
 
 You then need to select this theme in your `~/.zshrc` :
 
-```
+```zsh
 ZSH_THEME="oh-my-via/via"
 ```
 
 ### Customization
 
-Time format defaults to `%D{%H:%M}`, but can be overwritten by setting the variable
-`OHMYVIA_TIME_FORMAT` in your `~/.zshrc`.
+Prompt is composed of several widgets that are displayed one after the other.
 
-Hostname may be printed up to the first `.` or hidden with the variable
-`OHMYVIA_CONTEXT_HOSTNAME`.
+#### Date and time
 
-VCS theme can be set through the variable `OHMYVIA_VCS_THEME`.
+| Variable              | Description                      | Default      |
+|:---------------------:|:-------------------------------- |:------------:|
+| `OHMYVIA_TIME_COLOR`  | Background and foreground color. | `%B%F{cyan}` |
+| `OHMYVIA_TIME_FORMAT` | Display date and time.           | `%D{%H:%M}`  |
 
+#### Context ( user and hostname )
 
-Unit testing
-------------
+Context prompt showing `user@hostname`.
+
+| Variable                          | Description                                                                                       | Default        |
+|:---------------------------------:|:------------------------------------------------------------------------------------------------- |:--------------:|
+| `OHMYVIA_CONTEXT_HOSTNAME`        | Display hostname. Set to `partial` to print up to the first `.`. Set to `empty` to hide hostname. | `full`         |
+| `OHMYVIA_CONTEXT_HOSTNAME_COLOR`  | Hostname background and foreground color.                                                         | `%B%F{white}`  |
+| `OHMYVIA_CONTEXT_SEPARATOR_COLOR` | `@` separator between the user and the hostname background and foreground color.                  | `%B%F{yellow}` |
+| `OHMYVIA_CONTEXT_ROOT_COLOR`      | Root username background and foreground color.                                                    | `%B%F{blue}`   |
+| `OHMYVIA_CONTEXT_USER_COLOR`      | Non-root username background and foreground color.                                                | `%B%F{red}`    |
+
+#### VCS theme
+
+| Variable             | Description                                                           | Default   |
+|:--------------------:|:--------------------------------------------------------------------- |:---------:|
+| `OHMYVIA_VCS_THEME`  | Git prompt theme ( see [available themes](functions/vcs_themes.zsh) ) | `default` |
+
+## Unit testing
 
 Oh-My-VIA uses [ZUnit](https://github.com/molovo/zunit) as unit testing framework.
 
 To run the tests, just run:
 
-```
+```zsh
 zunit test
 ```
 
-
-License
--------
+## License
 
 Unless explicitly stated to the contrary, all contents licensed under the [WTFPL](LICENSE).
-
