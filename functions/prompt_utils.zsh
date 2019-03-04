@@ -34,7 +34,8 @@ prompt_context () {
 # Print current directory with ~ instead of $HOME
 # See http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Shell-state
 prompt_dir () {
-	local current_dir="$OHMYVIA_DIR_COLOR%~%b%f"
+	local colorless_current_dir="%$OHMYVIA_DIR_SIZE~"
+	local current_dir="$OHMYVIA_DIR_COLOR${colorless_current_dir}%b%f"
 
 	echo $current_dir
 }
@@ -47,4 +48,3 @@ prompt_time () {
 }
 
 # vim: ft=zsh fenc=utf-8
-

@@ -31,6 +31,7 @@ set_default OHMYVIA_CONTEXT_ROOT_COLOR       "%B%F{blue}"
 set_default OHMYVIA_CONTEXT_USER_COLOR       "%B%F{red}"
 
 set_default OHMYVIA_DIR_COLOR                "%B%F{green}"
+set_default OHMYVIA_DIR_SIZE                 "0"
 
 set_default OHMYVIA_STATUS_OK_COLOR          "%B%F{yellow}"
 set_default OHMYVIA_STATUS_ERROR_COLOR       "%B%F{red}"
@@ -79,4 +80,3 @@ precmd () { vcs_info }
 RPROMPT='${vcs_info_msg_0_}'
 
 # vim: ft=zsh fenc=utf-8
-

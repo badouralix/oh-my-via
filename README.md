@@ -65,6 +65,13 @@ Context prompt showing `user@hostname`.
 | `OHMYVIA_CONTEXT_ROOT_COLOR`      | Root username background and foreground color.                                                    | `%B%F{blue}`   |
 | `OHMYVIA_CONTEXT_USER_COLOR`      | Non-root username background and foreground color.                                                | `%B%F{red}`    |
 
+#### Directory
+
+| Variable            | Description                                                                                                                                       | Default       |
+|:-------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------- |:-------------:|
+| `OHMYVIA_DIR_COLOR` | Background and foreground color.                                                                                                                  | `%B%F{green}` |
+| `OHMYVIA_DIR_SIZE`  | Number of trailing components of the current directory to show. Set to `0` to show the whole path. Set to `1` to show only the current directory. | `0`           |
+
 #### VCS theme
 
 | Variable             | Description                                                           | Default   |
