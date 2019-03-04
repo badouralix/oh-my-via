@@ -9,6 +9,21 @@ ZSH frameworks such as [Oh-My-ZSH](https://github.com/robbyrussell/oh-my-zsh).
 
 ![General preview](https://cloud.githubusercontent.com/assets/19719047/21297526/3658ab04-c582-11e6-811d-f316d26996b3.png "Oh-My-VIA theme preview")
 
+## Table of Content
+
+- [Testing](#testing)
+- [Info](#info)
+  - [VCS caption](#vcs-caption)
+- [Usage](#usage)
+  - [Install for Oh-My-ZSH](#install-for-oh-my-zsh)
+  - [Customization](#customization)
+    - [Date and time](#date-and-time)
+    - [Context ( user and hostname )](#context--user-and-hostname-)
+    - [Working directory](#working-directory)
+    - [VCS theme](#vcs-theme)
+- [Unit testing](#unit-testing)
+- [License](#license)
+
 ## Testing
 
 See on [Docker Hub](https://hub.docker.com/r/badouralix/oh-my-via/) for a testing image.
@@ -65,7 +80,7 @@ Context prompt showing `user@hostname`.
 | `OHMYVIA_CONTEXT_ROOT_COLOR`      | Root username background and foreground color.                                                    | `%B%F{blue}`   |
 | `OHMYVIA_CONTEXT_USER_COLOR`      | Non-root username background and foreground color.                                                | `%B%F{red}`    |
 
-#### Directory
+#### Working directory
 
 | Variable            | Description                                                                                                                                       | Default       |
 |:-------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------- |:-------------:|
