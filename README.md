@@ -4,7 +4,7 @@
 [![WTFPLv2 License](https://img.shields.io/badge/license-WTFPLv2-blue.svg)](http://www.wtfpl.net)
 
 This is a theme for ZSH which mainly forks the historical theme used on
-[VIA Centrale Réseaux](https://via.ecp.fr/) servers. It can be used with
+[VIA Centrale Réseaux](https://via.l4th.fr/) servers. It can be used with
 ZSH frameworks such as [Oh-My-ZSH](https://github.com/robbyrussell/oh-my-zsh).
 
 ![General preview](https://cloud.githubusercontent.com/assets/19719047/21297526/3658ab04-c582-11e6-811d-f316d26996b3.png "Oh-My-VIA theme preview")
