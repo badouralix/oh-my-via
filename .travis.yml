@@ -21,7 +21,7 @@ after_success:
   # See https://stackoverflow.com/questions/34710513/how-can-i-update-full-description-on-docker-hub-automatically
   - >
       [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]
-      && curl -X POST -H "Content-Type: application/json" --data '{"docker_tag_name": "latest"}'
-      https://registry.hub.docker.com/u/badouralix/oh-my-via/trigger/$DOCKER_HUB_TOKEN/
+      && curl -XPOST -H "Content-Type: application/json" --data '{"docker_tag_name": "latest"}' --silent --output /dev/null
+      https://hub.docker.com/api/build/v1/source/$DOCKERHUB_SOURCE/trigger/$DOCKERHUB_TRIGGER/call/
 
 # vim: ts=2 sw=2 sts=2 et
