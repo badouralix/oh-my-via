@@ -31,5 +31,4 @@
 	hook_com[misc]=$OHMYVIA_VCS_COLOR_CLEAN
 }
 
-# vim: ft=zsh fenc=utf-8
-
+# vim: ft=zsh noet

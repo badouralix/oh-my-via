@@ -47,4 +47,4 @@ prompt_time () {
 	echo $clock
 }
 
-# vim: ft=zsh fenc=utf-8
+# vim: ft=zsh noet

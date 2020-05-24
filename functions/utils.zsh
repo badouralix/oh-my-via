@@ -50,5 +50,4 @@ set_default_color () {
 	fi
 }
 
-# vim: ft=zsh fenc=utf-8
-
+# vim: ft=zsh noet

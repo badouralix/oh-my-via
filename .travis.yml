@@ -24,5 +24,4 @@ after_success:
       && curl -X POST -H "Content-Type: application/json" --data '{"docker_tag_name": "latest"}'
       https://registry.hub.docker.com/u/badouralix/oh-my-via/trigger/$DOCKER_HUB_TOKEN/
 
-# vim: ts=2 sw=2 sts=2
-
+# vim: ts=2 sw=2 sts=2 et

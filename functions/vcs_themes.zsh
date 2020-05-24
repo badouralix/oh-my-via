@@ -68,5 +68,4 @@
 	OHMYVIA_VCS_PROMPT_ACTION="$vcs_prompt_prefix$vcs_prompt_hyphen$vcs_prompt_action"
 }
 
-# vim: ft=zsh fenc=utf-8
-
+# vim: ft=zsh noet
