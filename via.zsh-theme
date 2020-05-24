@@ -40,7 +40,7 @@ set_default OHMYVIA_TIME_COLOR               "%B%F{cyan}"
 set_default OHMYVIA_TIME_FORMAT              "%D{%H:%M}"
 
 set_default OHMYVIA_VCS_COLOR_UNSTAGED       "red"
-set_default OHMYVIA_VCS_COLOR_STAGE          "yellow"
+set_default OHMYVIA_VCS_COLOR_STAGED         "yellow"
 set_default OHMYVIA_VCS_COLOR_UNTRACKED      "blue"
 set_default OHMYVIA_VCS_COLOR_STASH          "cyan"
 set_default OHMYVIA_VCS_COLOR_CLEAN          "green"
