@@ -7,11 +7,7 @@ This is a theme for ZSH which mainly forks the historical theme used on
 [VIA Centrale Réseaux](https://via.l4th.fr/) servers. It can be used with
 ZSH frameworks such as [Oh-My-ZSH](https://github.com/robbyrussell/oh-my-zsh).
 
-![General preview](https://cloud.githubusercontent.com/assets/19719047/21297526/3658ab04-c582-11e6-811d-f316d26996b3.png "Oh-My-VIA theme preview")
-
-## Table of Content
-
-- [Testing](#testing)
+- [Preview](#preview)
 - [Info](#info)
   - [VCS caption](#vcs-caption)
 - [Usage](#usage)
@@ -24,7 +20,9 @@ ZSH frameworks such as [Oh-My-ZSH](https://github.com/robbyrussell/oh-my-zsh).
 - [Unit testing](#unit-testing)
 - [License](#license)
 
-## Testing
+## Preview
+
+![Oh-My-VIA theme preview](https://user-images.githubusercontent.com/19719047/83419205-00a85b00-a425-11ea-861b-1ad1a957f11c.png "Oh-My-VIA theme preview")
 
 See on [Docker Hub](https://hub.docker.com/r/badouralix/oh-my-via/) for a testing image.
 
