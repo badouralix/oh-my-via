@@ -1,0 +1,23 @@
+name: lint
+
+on:  # yamllint disable-line rule:truthy
+- pull_request
+- push
+
+jobs:
+  markdown-lint:
+    name: markdown-lint
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: avto-dev/markdown-lint@v1
+      with:
+        args: "**/*.md"
+  yaml-lint:
+    name: yaml-lint
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ibiqlik/action-yamllint@v1
+
+# vim: ts=2 sw=2 sts=2 et

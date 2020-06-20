@@ -1,0 +1,19 @@
+name: ZUnit Run
+
+description: Perform zsh unit tests using ZUnit framework
+
+inputs:
+  files-or-dirs:
+    description: Space-separated list of test files or test directories to run
+    required: false
+    default: tests/
+
+runs:
+  using: docker
+  image: docker://badouralix/zunit
+  args:
+  - zunit
+  - run
+  - ${{ inputs['files-or-dirs'] }}  # Using this format to overcome https://github.com/nektos/act/issues/104
+
+# vim: ts=2 sw=2 sts=2 et
