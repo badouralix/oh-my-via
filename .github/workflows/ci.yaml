@@ -15,4 +15,25 @@ jobs:
       with:
         files-or-dirs: test/
 
+  # Notify Docker Hub to make a new build
+  # See https://stackoverflow.com/questions/34710513/how-can-i-update-full-description-on-docker-hub-automatically
+  build:
+    if: github.ref == 'refs/heads/master'
+    name: build
+    needs: zunit
+    runs-on: ubuntu-latest
+    steps:
+    - name: Trigger dockerhub build
+      env:
+        DOCKERHUB_SOURCE: ${{ secrets.DOCKERHUB_SOURCE }}
+        DOCKERHUB_TRIGGER: ${{ secrets.DOCKERHUB_TRIGGER }}
+      run: >
+        curl
+        --request POST
+        --header 'Content-Type: application/json'
+        --data '{"docker_tag_name": "latest"}'
+        --output /dev/null
+        --silent
+        https://hub.docker.com/api/build/v1/source/$DOCKERHUB_SOURCE/trigger/$DOCKERHUB_TRIGGER/call/
+
 # vim: ts=2 sw=2 sts=2 et
