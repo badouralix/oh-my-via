@@ -1,7 +1,8 @@
 # VIA theme for ZSH
 
-[![Build Status](https://travis-ci.org/badouralix/oh-my-via.svg?branch=master)](https://travis-ci.org/badouralix/oh-my-via)
-[![WTFPLv2 License](https://img.shields.io/badge/license-WTFPLv2-blue.svg)](http://www.wtfpl.net)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/badouralix/oh-my-via/ci?logo=github)](https://github.com/badouralix/oh-my-via)
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/badouralix/oh-my-via?label=build&logo=docker&logoColor=white)](https://hub.docker.com/r/badouralix/oh-my-via)
+[![WTFPLv2 License](https://img.shields.io/github/license/badouralix/oh-my-via?color=lightgrey&logo=github)](http://www.wtfpl.net)
 
 This is a theme for ZSH which mainly forks the historical theme used on
 [VIA Centrale Réseaux](https://via.l4th.fr/) servers. It can be used with
