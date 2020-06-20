@@ -11,6 +11,8 @@ inputs:
 runs:
   using: docker
   image: docker://badouralix/zunit
+  env:
+    TERM: dumb
   args:
   - zunit
   - run
