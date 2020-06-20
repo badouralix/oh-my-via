@@ -100,7 +100,7 @@ To run the tests, just run:
 
 ```zsh
 # Directly with zunit
-zunit test
+zunit run tests
 
 # Indirectly with act
 act --job zunit
