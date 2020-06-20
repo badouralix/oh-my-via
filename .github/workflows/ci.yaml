@@ -12,8 +12,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run zunit from local action
       uses: ./.github/actions/zunit-run
-      with:
-        files-or-dirs: test/
 
   # Notify Docker Hub to make a new build
   # See https://stackoverflow.com/questions/34710513/how-can-i-update-full-description-on-docker-hub-automatically
