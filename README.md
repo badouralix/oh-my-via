@@ -99,7 +99,11 @@ Oh-My-VIA uses [ZUnit](https://github.com/molovo/zunit) as unit testing framewor
 To run the tests, just run:
 
 ```zsh
+# Directly with zunit
 zunit test
+
+# Indirectly with act
+act --job zunit
 ```
 
 ## License
