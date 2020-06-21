@@ -43,6 +43,8 @@ docker run -it --rm badouralix/oh-my-via
 
 ### Install for Oh-My-ZSH
 
+Oh-My-VIA is available as an [external theme for Oh-My-ZSH](https://github.com/ohmyzsh/ohmyzsh/wiki/External-themes#oh-my-via).
+
 In order to use this theme, you have to clone this repository in your Oh-My-ZSH
 `custom/themes` directory ( usually `~/.oh-my-zsh/custom/themes` ) :
 
