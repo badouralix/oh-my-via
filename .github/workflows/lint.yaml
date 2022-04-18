@@ -20,6 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: ibiqlik/action-yamllint@v1
+    - uses: ibiqlik/action-yamllint@v3
 
 # vim: ts=2 sw=2 sts=2 et
