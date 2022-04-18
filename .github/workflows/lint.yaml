@@ -11,7 +11,7 @@ jobs:
     name: markdown-lint
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: avto-dev/markdown-lint@v1
       with:
         args: "**/*.md"
@@ -19,7 +19,7 @@ jobs:
     name: yaml-lint
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: ibiqlik/action-yamllint@v1
 
 # vim: ts=2 sw=2 sts=2 et
