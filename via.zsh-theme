@@ -23,11 +23,12 @@ source $OHMYVIA_INSTALLATION_PATH/functions/vcs_utils.zsh
 #################################################################################
 
 ## Context properties
-set_default OHMYVIA_CONTEXT_HOSTNAME        "full"
-set_default OHMYVIA_CONTEXT_HOSTNAME_COLOR  "%B%F{white}"
-set_default OHMYVIA_CONTEXT_SEPARATOR_COLOR "%B%F{yellow}"
-set_default OHMYVIA_CONTEXT_ROOT_COLOR      "%B%F{blue}"
-set_default OHMYVIA_CONTEXT_USER_COLOR      "%B%F{red}"
+set_default OHMYVIA_CONTEXT_HOSTNAME           "full"
+set_default OHMYVIA_CONTEXT_HOSTNAME_COLOR     "%B%F{white}"
+set_default OHMYVIA_CONTEXT_HOSTNAME_COLOR_SSH "$OHMYVIA_CONTEXT_HOSTNAME_COLOR"
+set_default OHMYVIA_CONTEXT_SEPARATOR_COLOR    "%B%F{yellow}"
+set_default OHMYVIA_CONTEXT_ROOT_COLOR         "%B%F{blue}"
+set_default OHMYVIA_CONTEXT_USER_COLOR         "%B%F{red}"
 
 # Dir properties
 set_default OHMYVIA_DIR_COLOR "%B%F{green}"

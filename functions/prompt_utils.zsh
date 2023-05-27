@@ -26,7 +26,14 @@ prompt_context () {
 	elif [[ $OHMYVIA_CONTEXT_HOSTNAME == 'partial' ]]; then
 		colorless_hostname="%m"
 	fi
-	local hostname="$OHMYVIA_CONTEXT_HOSTNAME_COLOR${colorless_hostname}%b%f"
+
+	# Set the color depending on whether we detect an ssh session or not
+	# If SSH_TTY is set and not empty, assume session is interactive and over ssh
+	if [[ -n $SSH_TTY ]]; then
+		local hostname="$OHMYVIA_CONTEXT_HOSTNAME_COLOR_SSH${colorless_hostname}%b%f"
+	else
+		local hostname="$OHMYVIA_CONTEXT_HOSTNAME_COLOR${colorless_hostname}%b%f"
+	fi
 
 	echo "${username}${separator}${hostname}"
 }

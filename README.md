@@ -73,13 +73,14 @@ Prompt is composed of several widgets that are displayed one after the other.
 
 Context prompt showing `user@hostname`.
 
-|             Variable              | Description                                                                                       |    Default     |
-| :-------------------------------: | :------------------------------------------------------------------------------------------------ | :------------: |
-|    `OHMYVIA_CONTEXT_HOSTNAME`     | Display hostname. Set to `partial` to print up to the first `.`. Set to `empty` to hide hostname. |     `full`     |
-| `OHMYVIA_CONTEXT_HOSTNAME_COLOR`  | Hostname background and foreground color.                                                         | `%B%F{white}`  |
-| `OHMYVIA_CONTEXT_SEPARATOR_COLOR` | `@` separator between the user and the hostname background and foreground color.                  | `%B%F{yellow}` |
-|   `OHMYVIA_CONTEXT_ROOT_COLOR`    | Root username background and foreground color.                                                    |  `%B%F{blue}`  |
-|   `OHMYVIA_CONTEXT_USER_COLOR`    | Non-root username background and foreground color.                                                |  `%B%F{red}`   |
+|               Variable               | Description                                                                                       |              Default              |
+| :----------------------------------: | :------------------------------------------------------------------------------------------------ | :-------------------------------: |
+|      `OHMYVIA_CONTEXT_HOSTNAME`      | Display hostname. Set to `partial` to print up to the first `.`. Set to `empty` to hide hostname. |              `full`               |
+|   `OHMYVIA_CONTEXT_HOSTNAME_COLOR`   | Hostname background and foreground color.                                                         |           `%B%F{white}`           |
+| `OHMYVIA_CONTEXT_HOSTNAME_COLOR_SSH` | Alternative hostname background and foreground color only applied on ssh sessions.                | `$OHMYVIA_CONTEXT_HOSTNAME_COLOR` |
+|  `OHMYVIA_CONTEXT_SEPARATOR_COLOR`   | `@` separator between the user and the hostname background and foreground color.                  |          `%B%F{yellow}`           |
+|     `OHMYVIA_CONTEXT_ROOT_COLOR`     | Root username background and foreground color.                                                    |           `%B%F{blue}`            |
+|     `OHMYVIA_CONTEXT_USER_COLOR`     | Non-root username background and foreground color.                                                |            `%B%F{red}`            |
 
 #### Working directory
 

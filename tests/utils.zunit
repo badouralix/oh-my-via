@@ -29,6 +29,14 @@
 	assert $ZUNIT_TEST_VAR same_as "default_value"
 }
 
+@test 'Test set_default on non-set variable with copy' {
+	load $ZUNIT_LIB_DIR/utils.zsh
+
+	ZUNIT_TEST_VAR="test_value"
+	set_default ZUNIT_TEST_VAR_COPY "$ZUNIT_TEST_VAR"
+	assert $ZUNIT_TEST_VAR_COPY same_as "test_value"
+}
+
 @test 'Test set_default on already-set variable' {
 	load $ZUNIT_LIB_DIR/utils.zsh
 
@@ -46,11 +54,29 @@
 	assert $ZUNIT_TEST_VAR_COLOR same_as $ZUNIT_TEST_VAR_COLOR_WITNESS
 }
 
+@test 'Test set_default on /_COLOR$/ variable with copy' {
+	load $ZUNIT_LIB_DIR/utils.zsh
+
+	ZUNIT_TEST_VAR="test_value"
+	set_default       ZUNIT_TEST_VAR_COLOR         "$ZUNIT_TEST_VAR"
+	set_default_color ZUNIT_TEST_VAR_COLOR_WITNESS "test_value"
+	assert $ZUNIT_TEST_VAR_COLOR same_as $ZUNIT_TEST_VAR_COLOR_WITNESS
+}
+
 @test 'Test set_default on /_COLOR_.*$/ variable' {
 	load $ZUNIT_LIB_DIR/utils.zsh
 
 	set_default       ZUNIT_TEST_COLOR_VAR         "default_value"
 	set_default_color ZUNIT_TEST_COLOR_VAR_WITNESS "default_value"
+	assert $ZUNIT_TEST_COLOR_VAR same_as $ZUNIT_TEST_COLOR_VAR_WITNESS
+}
+
+@test 'Test set_default on /_COLOR_.*$/ variable with copy' {
+	load $ZUNIT_LIB_DIR/utils.zsh
+
+	ZUNIT_TEST_VAR="test_value"
+	set_default       ZUNIT_TEST_COLOR_VAR         "$ZUNIT_TEST_VAR"
+	set_default_color ZUNIT_TEST_COLOR_VAR_WITNESS "test_value"
 	assert $ZUNIT_TEST_COLOR_VAR same_as $ZUNIT_TEST_COLOR_VAR_WITNESS
 }
 
