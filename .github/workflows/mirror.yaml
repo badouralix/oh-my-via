@@ -1,0 +1,27 @@
+name: mirror
+
+on:  # yamllint disable-line rule:truthy
+- create
+- delete
+- push
+- workflow_dispatch
+
+jobs:
+  gitlab:
+    name: gitlab
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Push to gitlab
+      env:
+        GITLAB_DEPLOY_KEY: ${{ secrets.GITLAB_DEPLOY_KEY }}
+        GITLAB_PUBLIC_KEY: gitlab.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf
+        GITLAB_REPOSITORY: git@gitlab.com:${{ github.repository }}.git
+      run: |
+        eval `ssh-agent`
+        ssh-add - <<< $GITLAB_DEPLOY_KEY
+        install -D <(echo $GITLAB_PUBLIC_KEY) ~/.ssh/known_hosts
+        git push --force --prune $GITLAB_REPOSITORY +refs/remotes/origin/*:refs/heads/* +refs/tags/*:refs/tags/*
+        kill $SSH_AGENT_PID
